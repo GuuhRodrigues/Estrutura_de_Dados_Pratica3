@@ -1,21 +1,21 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class Ex2 {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner;
         scanner = new Scanner(new File("src/Ingressos.txt"));
-        Queue<String> pq = new PriorityQueue<>();
+        List<String> pq = new ArrayList<>();
 
         while (scanner.hasNextLine()) {
             pq.add(scanner.nextLine());
         }
+        System.out.println("Ingressos entrada VIP: ");
         for (int i = 0; i < 10; i++) {
-            System.out.print(pq.remove() + " ");
+            System.out.print(pq.remove(i) + " ");
         }
+        int select = new Random().nextInt(pq.size());
+        System.out.println("\nO número sorteado é " + pq.get(select));
     }
 }
